@@ -6,4 +6,6 @@ waitress
 nltk
 xgboost
 torch
+matplotlib
 transformers
+imblearn
