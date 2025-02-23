@@ -139,9 +139,23 @@ A /predict endpoint accepts input text, processes it through the best pipeline, 
 
 Contribution Guidelines
 Contributions are welcome! Please fork the repository, submit pull requests, and include tests for any new features. Follow the existing coding style.
+---
+## **MVP Of the Project**
+### ✅ Authentication
+- Uses **API key-based authentication** (`X-API-Key`) for secure access.
+- Ensure API keys are securely stored (consider using environment variables).
+- ## Screenshots
+
+### GDPR Compliance Checker
+![GDPR Compliance Screenshot](screenshots/WhatsApp_Image_2025-02-23_at_20.13.46_835d5951.jpg)
+
+### Mobile App Interface
+![App Interface Screenshot](screenshots/WhatsApp_Image_2025-02-23_at_20.13.46_b9425ca4.jpg)
 
 
+Uses API key-based authentication (X-API-Key) for secure access.
 
+Ensure API keys are securely stored (consider using environment variables).
 
 ## **Why MIT License?**
 We are using the **MIT License** instead of the **Apache License** because:
