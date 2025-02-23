@@ -2,11 +2,11 @@
 
 **DataShield** is an open-source mobile application designed for businesses and individuals who need to ensure regulatory compliance. This unified solution combines:
 
-1. **GDPR Compliance Checker:**  
-   - Analyzes text input to determine whether it violates GDPR.
-   - Uses a machine learning pipeline (with TF-IDF, SMOTE, and multiple classifiers) to classify text as **"Compliant"** or **"Non-compliant"**.
-
-This feature is integrated into a mobile app built with Flutter. The backend API is built using **FastAPI** and secured via API keys.
+## 1. GDPR Compliance Checker
+- Analyzes text input to determine whether it violates GDPR.
+- Uses a machine learning pipeline (with TF-IDF, SMOTE, and multiple classifiers) to classify text as **"Compliant"** or **"Non-compliant"**.
+- Integrated into a mobile app built with Flutter.
+- Backend API is built using **FastAPI** and secured via API keys.
 
 ---
 
@@ -129,7 +129,7 @@ Response example:
 # GDPR Compliance Prediction API
 
 ## 📌 Overview
-The **GDPR Compliance Prediction API** is a machine learning-powered API that predicts whether a given text violates **GDPR regulations**. The API uses **XGBoost**, **TF-IDF**, and **SMOTE** to classify text as **"compliance"** or **"violated"** based on GDPR requirements.
+The **GDPR Compliance Prediction API** is a machine learning-powered API that predicts whether a given text violates **GDPR regulations**. The API uses **XGBoost**, **TF-IDF**, and **SMOTE** to classify text as **"compliant"** or **"violated"** based on GDPR requirements.
 
 ## 🚀 MVP (Minimum Viable Product)
 ### ✅ **Core Features**
@@ -137,7 +137,7 @@ The **GDPR Compliance Prediction API** is a machine learning-powered API that pr
 #### **1️⃣ GDPR Compliance Prediction**
 - Accepts **text file uploads (`.txt`)**.
 - Uses **Machine Learning (XGBoost, TF-IDF, SMOTE)** to classify text.
-- Returns a **clear response**: `"compliance"` or `"violated"`.
+- Returns a **clear response**: `"compliant"` or `"violated"`.
 
 #### **2️⃣ Machine Learning Pipeline**
 - **Text Preprocessing**: Converts text to **lowercase**, removes **non-alphabetic characters**.
@@ -156,6 +156,17 @@ The **GDPR Compliance Prediction API** is a machine learning-powered API that pr
 
 <img src="images/pic1.png" width="40%" height="60%">  
 <img src="images/pic2.png" width="40%" height="60%">  
+
+---
+
+## **Future Plans**
+
+### **Reminder-Based Email System for Tax Deadlines**
+- **Purpose:** Send reminder emails before tax deadlines such as **TDS, TCS, ITR, Advance Tax**, etc.
+- **Reminder Timeline:** Emails will be sent **10 days, 5 days, and 1 day** before each deadline.
+- **Data Source:** Since there is no public API available, we will **scrape tax-related websites** (e.g., **ClearTax**) to extract deadline information.
+- **Storage:** Data will be stored in **Supabase**.
+- **Email Service:** Use an **open-source mail service** to send automated reminders.
 
 ---
 
