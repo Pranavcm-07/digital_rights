@@ -1,6 +1,6 @@
-# RegCom & TaxRemind
+# DataShield & TaxAlert: Compliance & Tax Reminders App
 
-**RegCom & TaxRemind** is an open-source mobile application designed for businesses and individuals who need to ensure regulatory compliance while managing critical financial deadlines. This unified solution combines:
+**DataShield & TaxAlert** is an open-source mobile application designed for businesses and individuals who need to ensure regulatory compliance while managing critical financial deadlines. This unified solution combines:
 
 1. **GDPR Compliance Checker:**  
    - Analyzes text input to determine whether it violates GDPR.
