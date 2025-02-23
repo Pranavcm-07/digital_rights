@@ -17,13 +17,18 @@ from sklearn.decomposition import TruncatedSVD
 from xgboost import XGBClassifier
 from imblearn.over_sampling import SMOTE
 from imblearn.pipeline import Pipeline  # imblearn pipeline to work with SMOTE
+from dotenv import load_dotenv
+import os
 
+
+
+load_dotenv()
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # --- API KEY Setup ---
-API_KEY = "abc123secretXYZ"  # Replace with your own secure API key
+API_KEY = os.getenv("API_KEY")
 API_KEY_NAME = "X-API-Key"
 
 def get_api_key(x_api_key: str = Header(...)):
@@ -102,12 +107,8 @@ def predict(file: UploadFile = File(...), api_key: str = Depends(get_api_key)):
     predicted_label = label_map.get(prediction, "Unknown")
     
     response = {
-        "file_name": file.filename,
+        "file_name": content,
         "prediction": predicted_label,
-        "metrics": {
-            "accuracy": accuracy,
-            "roc_auc": roc_auc
-        }
     }
     return JSONResponse(content=response)
 
