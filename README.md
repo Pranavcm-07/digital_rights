@@ -154,8 +154,8 @@ The **GDPR Compliance Prediction API** is a machine learning-powered API that pr
 
 ### **Screenshots**
 
-![App Interface Screenshot](images/pic1.png)
-![App Interface Screenshot](images/pic2.png)
+<img src="images/pic1.png" width="40%" height="60%">  
+<img src="images/pic2.png" width="40%" height="60%">  
 
 ---
 
