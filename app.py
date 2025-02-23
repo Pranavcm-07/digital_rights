@@ -353,8 +353,6 @@
 # if __name__ == '__main__':
 #     app.run(debug=True)
 #=================================================================
-
-
 from fastapi import FastAPI, HTTPException, Header, Depends
 from fastapi.responses import JSONResponse
 import pandas as pd
@@ -447,7 +445,7 @@ dataset['summary'] = dataset['summary'].fillna('')
 
 check_duplicates(dataset)
 X_text = dataset['summary']
-y = dataset['condition']  # 0 = Non-compliant, 1 = Compliant
+y = dataset['condition']  # 0 = violation, 1 = compliance
 
 logger.info("Original class distribution:\n%s", y.value_counts().to_string())
 analyze_token_frequencies(X_text, y)
@@ -499,6 +497,7 @@ def predict(text_payload: dict, api_key: str = Depends(get_api_key)):
     """
     Predict GDPR compliance based on input text.
     Request body should be JSON with a "text" field.
+    Output will be either "violated" or "compliance".
     """
     if "text" not in text_payload:
         raise HTTPException(status_code=400, detail='Invalid request. Provide "text" field.')
@@ -511,7 +510,8 @@ def predict(text_payload: dict, api_key: str = Depends(get_api_key)):
         logger.error("Error during prediction: %s", e)
         raise HTTPException(status_code=500, detail="Prediction failed.")
     
-    label_map = {0: "Non-compliant", 1: "Compliant"}
+    # Map class 0 to "violated" and class 1 to "compliance"
+    label_map = {0: "violated", 1: "compliance"}
     predicted_label = label_map.get(prediction, "Unknown")
     
     response = {
@@ -522,13 +522,13 @@ def predict(text_payload: dict, api_key: str = Depends(get_api_key)):
             "roc_auc": roc_auc
         }
     }
-    return JSONResponse(content=response, indent=4)
+    return JSONResponse(content=response)
 
 @app.get("/")
 def read_root(api_key: str = Depends(get_api_key)):
     return {"message": "Welcome to the GDPR Compliance Prediction API! Use the /predict endpoint to get started."}
 
-# To run the app, use a command like: uvicorn this_filename:app --reload
+# To run the app, use a command like: uvicorn your_filename:app --reload
 if __name__ == '__main__':
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
